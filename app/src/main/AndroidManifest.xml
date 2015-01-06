@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pk.colinjames.pocketcaddie"
+    android:versionCode="1" android:versionName="1.0"  >
+    <application
+        android:minSdkVersion="14"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_caddie"
+        android:label="@string/app_name"
+        android:theme="@style/ActionBarCustom"
+
+        >
+        <activity
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:label="@string/title_activity_player_stat"
+            android:name="pk.colinjames.pocketcaddie.PlayerStat"
+            android:parentActivityName="pk.colinjames.pocketcaddie.ChoosePlayerStatActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.ChoosePlayerStatActivity" />
+        </activity>
+
+        <activity android:label="@string/title_activity_course_stat"
+            android:name="pk.colinjames.pocketcaddie.CourseStat"
+            android:parentActivityName="pk.colinjames.pocketcaddie.ChooseCourseStatActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.ChooseCourseStatActivity" />
+        </activity>
+
+        <activity android:label="@string/title_activity_choose_player_stat"
+            android:name="pk.colinjames.pocketcaddie.ChoosePlayerStatActivity"
+            android:parentActivityName="pk.colinjames.pocketcaddie.ChooseStatsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.ChooseStatsActivity" />
+        </activity>
+
+        <activity  android:label="@string/title_activity_choose_course_stat"
+            android:name="pk.colinjames.pocketcaddie.ChooseCourseStatActivity"
+            android:parentActivityName="pk.colinjames.pocketcaddie.ChooseStatsActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.ChooseStatsActivity" />
+        </activity>
+
+        <activity  android:label="@string/title_activity_choose_stats"
+            android:name="pk.colinjames.pocketcaddie.ChooseStatsActivity"
+            android:parentActivityName="pk.colinjames.pocketcaddie.MainActivity">
+        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.MainActivity" />
+        </activity>
+
+
+        <activity  android:label="@string/title_activity_scores"
+            android:windowSoftInputMode="stateHidden"
+            android:name="pk.colinjames.pocketcaddie.Scores"
+            android:parentActivityName="pk.colinjames.pocketcaddie.TypeActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.TypeActivity" />
+        </activity>
+
+        <activity android:label="@string/title_activity_select_course"
+            android:name="pk.colinjames.pocketcaddie.SelectCourseActivity"
+            android:parentActivityName="pk.colinjames.pocketcaddie.SelectPlayers2Activity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="pk.colinjames.pocketcaddie.SelectPlayers2Activity" />
+        </activity>
+
+        <activity android:label="@string/title_activity_type"
+            android:name="pk.colinjames.pocketcaddie.TypeActivity"
+            android:parentActivityName="pk.colinjames.pocketcaddie.SelectCourseActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="pk.colinjames.pocketcaddie.SelectCourseActivity" />
+        </activity>
+
+        <activity
+         android:label="@string/title_activity_select_players2"
+        android:name="pk.colinjames.pocketcaddie.SelectPlayers2Activity"
+        android:parentActivityName="pk.colinjames.pocketcaddie.MainActivity">
+        <meta-data android:name="android.support.PARENT_ACTIVITY"
+            android:value="pk.colinjames.pocketcaddie.MainActivity" />
+    </activity>
+        >
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    </application>
+
+</manifest>

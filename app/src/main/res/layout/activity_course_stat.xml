@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@drawable/ic_background" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@+id/course_stat_view" android:paddingTop="?android:actionBarSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+>
+<TextView android:textSize="30.0sp" android:textColor="#ffffffff" android:gravity="center_horizontal" android:id="@+id/course_stat_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_stat_average" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_stat_times" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_front_best" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_back_best" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_total_best" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg5" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg6" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg7" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg8" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg9" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg10" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg11" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg12" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg13" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg14" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg15" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg16" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg17" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@+id/course_avg18" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <Button android:id="@+id/course_delete_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/delete" android:onClick="deleteCourse" />
+    </LinearLayout>
+</ScrollView>

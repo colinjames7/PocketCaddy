@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/ic_background" android:paddingTop="?android:actionBarSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@+id/linear_courselist" android:paddingTop="?android:actionBarSize" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="42.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_horizontal" android:id="@id/type_course_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/add_course" />
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="200.0dip">
+                <ListView android:id="@+id/course_listview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" />
+            </LinearLayout>
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <Button android:layout_gravity="center_horizontal" android:id="@+id/add_course_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/New_Course" android:layout_centerHorizontal="true" android:onClick="enterCourse" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

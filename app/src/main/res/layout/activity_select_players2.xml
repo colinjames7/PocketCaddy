@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/ic_background" android:paddingTop="?android:actionBarSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="42.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_horizontal" android:id="@id/type_course_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/add_player" />
+    <RelativeLayout android:orientation="vertical" android:id="@+id/players_layout" android:paddingTop="?android:actionBarSize" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true">
+        <Button android:id="@+id/course2_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="43.0dip" android:text="@string/next_screen" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:onClick="toCourse" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@+id/first_players" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:animateLayoutChanges="true">
+            <Button android:gravity="center_horizontal" android:id="@+id/add_player" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Add" android:onClick="onClick" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

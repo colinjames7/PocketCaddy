@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0sp" android:gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/select_save" />
+    <CheckBox android:id="@+id/save_1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/save_2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/save_3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <CheckBox android:id="@+id/save_4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:id="@+id/no_players" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_players" />
+</LinearLayout>
