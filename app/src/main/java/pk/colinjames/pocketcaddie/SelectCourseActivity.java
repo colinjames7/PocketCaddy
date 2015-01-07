@@ -76,7 +76,7 @@ public class SelectCourseActivity extends Activity
         }
         //playeradapter = new ArrayAdapter(this, R.id.course_list, android.R.layout.simple_list_item_1, player_names);
 
-        playeradapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, player_names);
+        playeradapter = new ArrayAdapter(this, R.layout.list_custom, player_names);
         ((ListView)findViewById(R.id.course_listview)).setAdapter(playeradapter);
         ((ListView)findViewById(R.id.course_listview)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
