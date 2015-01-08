@@ -98,28 +98,28 @@ public class Course_Stat_Dialog extends DialogFragment
         textview20 = (TextView)view1.findViewById(R.id.course_front_best);
         textview21 = (TextView)view1.findViewById(R.id.course_back_best);
         textview22 = (TextView)view1.findViewById(R.id.course_total_best);
+
         
         if((double)course.getTimesPlayed() == 0.0D) {
             textview.setText("Course Never Played");
-            textview20.setVisibility(View.INVISIBLE);
-            textview2.setVisibility(View.INVISIBLE);
-            textview3.setVisibility(View.INVISIBLE);
-            textview4.setVisibility(View.INVISIBLE);
-            textview5.setVisibility(View.INVISIBLE);
-            textview6.setVisibility(View.INVISIBLE);
-            textview7.setVisibility(View.INVISIBLE);
-            textview8.setVisibility(View.INVISIBLE);
-            textview9.setVisibility(View.INVISIBLE);
-            textview21.setVisibility(View.INVISIBLE);
-            textview12.setVisibility(View.INVISIBLE);
-            textview13.setVisibility(View.INVISIBLE);
-            textview14.setVisibility(View.INVISIBLE);
-            textview15.setVisibility(View.INVISIBLE);
-            textview16.setVisibility(View.INVISIBLE);
-            textview17.setVisibility(View.INVISIBLE);
-            textview18.setVisibility(View.INVISIBLE);
-            textview19.setVisibility(View.INVISIBLE);
-            return builder.create();}
+            textview20.setVisibility(View.GONE);
+            textview2.setVisibility(View.GONE);
+            textview3.setVisibility(View.GONE);
+            textview4.setVisibility(View.GONE);
+            textview5.setVisibility(View.GONE);
+            textview6.setVisibility(View.GONE);
+            textview7.setVisibility(View.GONE);
+            textview8.setVisibility(View.GONE);
+            textview9.setVisibility(View.GONE);
+            textview21.setVisibility(View.GONE);
+            textview12.setVisibility(View.GONE);
+            textview13.setVisibility(View.GONE);
+            textview14.setVisibility(View.GONE);
+            textview15.setVisibility(View.GONE);
+            textview16.setVisibility(View.GONE);
+            textview17.setVisibility(View.GONE);
+            textview18.setVisibility(View.GONE);
+            textview19.setVisibility(View.GONE); }
         else {
 
         textview.setText((new StringBuilder("Average to Par:")).append(Float.toString(course.getAverage())).toString());
@@ -138,15 +138,15 @@ public class Course_Stat_Dialog extends DialogFragment
             textview10.setText((new StringBuilder("Hole 9 Average: ")).append(Float.toString(course.getHoleAverage(9))).toString());
         } else
         {
-            textview20.setVisibility(View.INVISIBLE);
+            textview20.setVisibility(View.GONE);
             textview2.setText("Front Nine Never Played");
-            textview3.setVisibility(View.INVISIBLE);
-            textview4.setVisibility(View.INVISIBLE);
-            textview5.setVisibility(View.INVISIBLE);
-            textview6.setVisibility(View.INVISIBLE);
-            textview7.setVisibility(View.INVISIBLE);
-            textview8.setVisibility(View.INVISIBLE);
-            textview9.setVisibility(View.INVISIBLE);
+            textview3.setVisibility(View.GONE);
+            textview4.setVisibility(View.GONE);
+            textview5.setVisibility(View.GONE);
+            textview6.setVisibility(View.GONE);
+            textview7.setVisibility(View.GONE);
+            textview8.setVisibility(View.GONE);
+            textview9.setVisibility(View.GONE);
         }
         if (course.getBackBest() != 1000F)
         {
@@ -163,27 +163,27 @@ public class Course_Stat_Dialog extends DialogFragment
         } else
         {
             textview11.setText("Back Nine Never Played");
-            textview21.setVisibility(View.INVISIBLE);
-            textview12.setVisibility(View.INVISIBLE);
-            textview13.setVisibility(View.INVISIBLE);
-            textview14.setVisibility(View.INVISIBLE);
-            textview15.setVisibility(View.INVISIBLE);
-            textview16.setVisibility(View.INVISIBLE);
-            textview17.setVisibility(View.INVISIBLE);
-            textview18.setVisibility(View.INVISIBLE);
-            textview19.setVisibility(View.INVISIBLE);
+            textview21.setVisibility(View.GONE);
+            textview12.setVisibility(View.GONE);
+            textview13.setVisibility(View.GONE);
+            textview14.setVisibility(View.GONE);
+            textview15.setVisibility(View.GONE);
+            textview16.setVisibility(View.GONE);
+            textview17.setVisibility(View.GONE);
+            textview18.setVisibility(View.GONE);
+            textview19.setVisibility(View.GONE);
         }
         if (course.getTotalBest() != 1000F)
         {
             textview22.setText((new StringBuilder("Course Record: ")).append(Float.toString(course.getTotalBest())).toString());
         }
-        
+
             if (course.getCourseLength() == 9)
             {
                 textview11.setVisibility(View.INVISIBLE);
-            }
+            }}
             LinearLayout linearlayout = (LinearLayout)view1.findViewById(R.id.course_stat_view );
-            ((Button)view1.findViewById(R.id.course_delete_button)).setVisibility(View.INVISIBLE);
+            ((Button)view1.findViewById(R.id.course_delete_button)).setVisibility(View.GONE);
             Button button = new Button(view1.getContext());
             button.setLayoutParams(new android.view.ViewGroup.LayoutParams(-1, -2));
             button.setText("Exit");
@@ -205,7 +205,7 @@ public class Course_Stat_Dialog extends DialogFragment
             linearlayout.addView(button);
             linearlayout.setPadding(0, 0, 0, 0);
             builder.setView(view1);
-            return builder.create();}}
+            return builder.create();}
 
     
 

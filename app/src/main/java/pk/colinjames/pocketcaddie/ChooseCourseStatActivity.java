@@ -44,9 +44,10 @@ public class ChooseCourseStatActivity extends Activity{
         getActionBar().setDisplayShowTitleEnabled(false);
         setContentView(R.layout.activity_choose_course_stat);
         course_names = Memory.createCourseNames();
-        courseadapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, course_names);
+        System.out.println(course_names);
+        courseadapter = new ArrayAdapter(this, R.layout.list_custom, course_names);
         TextView textview = (TextView)findViewById(R.id.course_empty_message);
-        textview.setVisibility(View.INVISIBLE);
+        textview.setVisibility(View.GONE);
         if (course_names.isEmpty())
         {
             textview.setVisibility(View.VISIBLE);

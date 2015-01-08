@@ -9,12 +9,14 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebHistoryItem;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -29,8 +31,7 @@ import java.util.Iterator;
 //            ChooseStatsActivity
 
 @SuppressLint("NewApi")
-public class PlayerStat extends Activity
-{
+public class PlayerStat extends Activity{
 
     Player player;
     String player_name;
@@ -57,6 +58,7 @@ public class PlayerStat extends Activity
         textview.setText(round.getDate().toString());
         linearlayout.addView(textview);
         TextView textview1 = new TextView(linearlayout.getContext());
+
         textview1.setText(round.getCourse().getName());
         linearlayout.addView(textview1);
         TextView textview2 = new TextView(linearlayout.getContext());
@@ -115,6 +117,33 @@ public class PlayerStat extends Activity
         linearlayout2.addView(textview5);
         linearlayout3 = new LinearLayout(horizontalscrollview.getContext());
         linearlayout3.addView(textview7);
+        textview.setTextColor(Color.WHITE);
+        textview1.setTextColor(Color.WHITE);
+        textview2.setTextColor(Color.WHITE);
+        textview3.setTextColor(Color.WHITE);
+        textview4.setTextColor(Color.WHITE);
+        textview5.setTextColor(Color.WHITE);
+        textview6.setTextColor(Color.WHITE);
+        textview7.setTextColor(Color.WHITE);
+        textview8.setTextColor(Color.WHITE);
+        textview9.setTextColor(Color.WHITE);
+        textview10.setTextColor(Color.WHITE);
+        textview11.setTextColor(Color.WHITE);
+        textview12.setTextColor(Color.WHITE);
+        textview13.setTextColor(Color.WHITE);
+        textview14.setTextColor(Color.WHITE);
+        textview15.setTextColor(Color.WHITE);
+        textview16.setTextColor(Color.WHITE);
+        textview17.setTextColor(Color.WHITE);
+        textview18.setTextColor(Color.WHITE);
+        textview19.setTextColor(Color.WHITE);
+        textview20.setTextColor(Color.WHITE);
+        textview21.setTextColor(Color.WHITE);
+        textview22.setTextColor(Color.WHITE);
+        textview23.setTextColor(Color.WHITE);
+        textview24.setTextColor(Color.WHITE);
+        textview25.setTextColor(Color.WHITE);
+
         int i;
         int l;
         if (round.getType().equals("eighteen_holes"))
@@ -180,26 +209,29 @@ public class PlayerStat extends Activity
         while (j < i){
  		   int k = ai[j];
  		   TextView textview26 = new TextView(linearlayout.getContext());
- 		   textview26.setText(Integer.toString(k));
+ 		   textview26.setText(Integer.toString(k) + " ");
  		   linearlayout2.addView(textview26);
- 		   j++; }
+            textview26.setTextColor(Color.WHITE);
+
+            j++; }
  	   linearlayout.addView(linearlayout2);
  	   af = round.getScore();
  	   l = af.length;
  	   i1 = 0;
- 	   
+
+       while (i1 < l){
       float f = af[i1];
       TextView textview27 = new TextView(linearlayout.getContext());
-      textview27.setText(Integer.toString((int)f));
+      textview27.setText(Integer.toString((int)f)+ " ");
+           textview27.setTextColor(Color.WHITE);
       linearlayout3.addView(textview27);
-      i1++;
+      i1++;}
       
-    if (i1 >= l) {
         linearlayout.addView(linearlayout3);
         horizontalscrollview.addView(linearlayout);
         view.addView(horizontalscrollview);
         return;
-    }
+
     }
 
     public void deleteButtonHandler()
@@ -262,11 +294,11 @@ public class PlayerStat extends Activity
         if ((double)player.getTimesPlayed() == 0.0D)
         {
             textview.setText("Never Played");
-            view1.setVisibility(View.INVISIBLE);
+            view1.setVisibility(View.GONE);
         } else
         {
             textview.setText((new StringBuilder("Average to Par:")).append(Float.toString(player.getAverage())).toString());
-            textview1.setText((new StringBuilder("Times Played")).append(Float.toString(player.getTimesPlayed())).toString());
+            textview1.setText((new StringBuilder("Times Played")).append((Integer.toString(player.getTimesPlayed()))).toString());
             Iterator iterator = player.getRounds().iterator();
             while (iterator.hasNext()) 
             {

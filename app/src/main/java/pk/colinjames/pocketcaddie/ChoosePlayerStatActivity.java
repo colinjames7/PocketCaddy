@@ -46,9 +46,9 @@ public class ChoosePlayerStatActivity extends Activity
         getActionBar().setBackgroundDrawable(null);
         setContentView(R.layout.activity_choose_player_stat);
         player_names = Memory.createPlayerNames();
-        playeradapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, player_names);
+        playeradapter = new ArrayAdapter(this, R.layout.list_custom, player_names);
         TextView textview = (TextView)findViewById(R.id.player_empty_message);
-        textview.setVisibility(View.INVISIBLE);
+        textview.setVisibility(View.GONE);
         if (player_names.isEmpty())
         {
             textview.setVisibility(View.VISIBLE);
