@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ public class CourseStat extends Activity
 
     Course course;
     String course_name;
+    Memory memory;
 
     public CourseStat()
     {
@@ -44,8 +46,8 @@ public class CourseStat extends Activity
 
             public void onClick(DialogInterface dialoginterface, int i)
             {
-                Memory.courses.remove(course);
-                Memory.saveData(Memory.getInstance());
+                memory.courses.remove(course);
+                Memory.saveData(memory);
                 Intent intent = new Intent(CourseStat.this, ChooseStatsActivity.class);
                 startActivity(intent);
             }
@@ -78,6 +80,7 @@ public class CourseStat extends Activity
 
     protected void onCreate(Bundle bundle)
     {
+        memory = Memory.loadData();
         TextView textview;
         TextView textview1;
         TextView textview2;
@@ -109,7 +112,8 @@ public class CourseStat extends Activity
         course_name = intent.getStringExtra("com.example.pocketcaddies.course_stat_name");
         setContentView(R.layout.activity_course_stat);
         ((TextView)findViewById(R.id.course_stat_name)).setText(course_name);
-        course = Memory.findCourse(course_name);
+        course = memory.findCourse(course_name);
+        Log.d("hey", Integer.toString(course.getTimesPlayed()));
         textview = (TextView)findViewById(R.id.course_stat_average);
         textview1 = (TextView)findViewById(R.id.course_stat_times);
         textview2 = (TextView)findViewById(R.id.course_avg1);

@@ -38,6 +38,7 @@ public class TypeActivity extends Activity
     public String player_one;
     public String player_three;
     public String player_two;
+    Memory memory;
 
     public TypeActivity()
     {
@@ -64,6 +65,7 @@ public class TypeActivity extends Activity
 
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
+        memory = Memory.loadData();
         getActionBar().setBackgroundDrawable(null);
         getActionBar().setDisplayShowTitleEnabled(false);
         Button next_button = (Button)findViewById(R.id.next_screem);
@@ -90,7 +92,7 @@ public class TypeActivity extends Activity
         player_four = intent.getStringExtra("com.examples.PocketCaddies.Player4");
 
 
-        course = Memory.findCourse(course_name);
+        course = memory.findCourse(course_name);
         ((TextView)findViewById(R.id.type_names)).setText(findPlayers());
         ((TextView)findViewById(R.id.type_course_name)).setText(course_name);
         radiogroup = (RadioGroup)findViewById(R.id.play_style);

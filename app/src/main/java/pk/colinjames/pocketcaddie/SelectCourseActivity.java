@@ -35,6 +35,7 @@ public class SelectCourseActivity extends Activity
     String player2_name;
     String player3_name;
     String player4_name;
+    Memory memory;
 
     public SelectCourseActivity()
     {
@@ -48,11 +49,12 @@ public class SelectCourseActivity extends Activity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
+        memory = Memory.loadData();
         getActionBar().setDisplayShowTitleEnabled(false);
         getActionBar().setBackgroundDrawable(null);
         setContentView(R.layout.activity_select_course);
         Intent intent = getIntent();
-        player_names = Memory.createCourseNames();
+        player_names = memory.createCourseNames();
         ((Button)findViewById(R.id.add_course_button)).setBackgroundColor(0xffcccccc);
         String s = intent.getStringExtra("com.examples.PocketCaddies.Player1");
         String s1 = intent.getStringExtra("com.examples.PocketCaddies.Player2");

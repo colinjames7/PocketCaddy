@@ -33,6 +33,7 @@ public class Player_Stat_Dialog extends DialogFragment
     private Player player;
     private LinearLayout view;
     private View view1;
+    Memory memory;
 
     public Player_Stat_Dialog()
     {
@@ -245,13 +246,14 @@ public class Player_Stat_Dialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        memory = Memory.loadData();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         inflator = getActivity().getLayoutInflater();
         view1 = inflator.inflate(R.layout.activity_player_stat, null);
         super.onCreate(bundle);
         setCancelable(true);
         ((TextView)view1.findViewById(R.id.player_stat_name)).setText(player_name);
-        player = Memory.findPlayer(player_name);
+        player = memory.findPlayer(player_name);
         View view2 = view1.findViewById(R.id.rounds_text);
         TextView textview = (TextView)view1.findViewById(R.id.player_stat_average);
         TextView textview1 = (TextView)view1.findViewById(R.id.player_stat_times);

@@ -39,6 +39,7 @@ public class CourseDialog extends DialogFragment
     private RadioGroup radiocourse;
     private View view1;
     private View view2;
+    Memory memory;
 
     public CourseDialog()
     {
@@ -47,7 +48,7 @@ public class CourseDialog extends DialogFragment
     private boolean checkDuplicates(String s)
     {
 
-        ArrayList arraylist = Memory.createCourseNames();
+        ArrayList arraylist = memory.createCourseNames();
         boolean flag = true;
         Iterator iterator = arraylist.iterator();
         do
@@ -296,6 +297,7 @@ public class CourseDialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        memory = Memory.loadData();
         all_holes = Boolean.valueOf(true);
         fully_entered = Boolean.valueOf(false);
         setCancelable(false);
@@ -383,8 +385,8 @@ public class CourseDialog extends DialogFragment
                         dismiss();
                         Course course = new Course(s, getPars(), getPars().length);
                         Memory.loadData();
-                        Memory.courses.add(course);
-                        Memory.saveData(Memory.getInstance());
+                        memory.courses.add(course);
+                        Memory.saveData(memory);
                         SelectCourseActivity.player_names.add(s);
                         SelectCourseActivity.playeradapter.notifyDataSetChanged();
                     }

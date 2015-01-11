@@ -27,6 +27,7 @@ public class Course_Stat_Dialog extends DialogFragment
     String course_name;
     private LayoutInflater inflator;
     private View view1;
+    Memory memory;
 
     public Course_Stat_Dialog()
     {
@@ -43,6 +44,7 @@ public class Course_Stat_Dialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        memory = Memory.loadData();
         AlertDialog.Builder builder;
         TextView textview;
         TextView textview1;
@@ -74,7 +76,7 @@ public class Course_Stat_Dialog extends DialogFragment
         course_name = Scores.course_name;
         setCancelable(true);
         ((TextView)view1.findViewById(R.id.course_stat_name)).setText(course_name);
-        course = Memory.findCourse(course_name);
+        course = memory.findCourse(course_name);
         textview = (TextView)view1.findViewById(R.id.course_stat_average);
         textview1 = (TextView)view1.findViewById(R.id.course_stat_times);
         textview2 = (TextView)view1.findViewById(R.id.course_avg1);

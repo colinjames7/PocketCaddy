@@ -5,12 +5,13 @@
 package pk.colinjames.pocketcaddie;
 
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 // Referenced classes of package com.example.pocketcaddies:
 //            Round
 
-public class Player
+public class Player implements Serializable
 {
 
     private float average_to_par;

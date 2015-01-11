@@ -17,6 +17,7 @@ import android.os.Environment;
 //import android.view.Menu;
 //import android.view.MenuInflater;
 //import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import java.io.PrintStream;
@@ -40,8 +41,17 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
 //        getActionBar().hide();
+        if(Memory.loadData() == null){
+            Log.d("yp", "af");
+            Memory memory = new Memory();
+            Memory.saveData(memory);
+        }
+        if(Memory.loadData() == null){ Log.d("what", "what");}
+
+
+           // Log.d("yo", "yo");
+
         setContentView(R.layout.activity_main);
-        Memory.loadData();
         ((Button)findViewById(R.id.plumtree)).setBackgroundColor(0xffcccccc);
         ((Button)findViewById(R.id.button1)).setBackgroundColor(0xffcccccc);
     }

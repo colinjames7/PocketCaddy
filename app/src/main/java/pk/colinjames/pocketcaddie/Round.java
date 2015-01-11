@@ -4,13 +4,14 @@
 
 package pk.colinjames.pocketcaddie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
 // Referenced classes of package com.example.pocketcaddies:
 //            Course, Player
 
-public class Round
+public class Round implements Serializable
 {
 
     private Course course_played;

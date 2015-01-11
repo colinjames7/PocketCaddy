@@ -34,16 +34,18 @@ public class ChooseCourseStatActivity extends Activity{
     public static ArrayList course_names;
     public static ArrayAdapter courseadapter;
     String clicked;
+    Memory memory;
 
     public ChooseCourseStatActivity(){
     }
 
 	protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
+        memory = Memory.loadData();
         getActionBar().setBackgroundDrawable(null);
         getActionBar().setDisplayShowTitleEnabled(false);
         setContentView(R.layout.activity_choose_course_stat);
-        course_names = Memory.createCourseNames();
+        course_names = memory.createCourseNames();
         System.out.println(course_names);
         courseadapter = new ArrayAdapter(this, R.layout.list_custom, course_names);
         TextView textview = (TextView)findViewById(R.id.course_empty_message);

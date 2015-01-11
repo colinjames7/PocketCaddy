@@ -32,6 +32,7 @@ import java.util.Date;
 @SuppressLint("NewApi")
 public class Scores extends Activity{
 
+    Memory memory;
     public static Course course;
     public static String course_name;
     public static Date date_played;
@@ -1284,13 +1285,14 @@ public class Scores extends Activity{
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
+        memory = Memory.loadData();
         getActionBar().setDisplayShowTitleEnabled(false);
         getActionBar().setBackgroundDrawable(null);
         setContentView(R.layout.activity_scores);
         Intent intent = getIntent();
         course_name = intent.getStringExtra("com.example.PocketCaddies.Course_Name");
         type_play = intent.getStringExtra("com.example.PocketCaddies.typle_player");
-        course = Memory.findCourse(course_name);
+        course = memory.findCourse(course_name);
         par_list = course.getPars();
         Button button = (Button)findViewById(R.id.Score_p1_stat_button);
         android.view.View.OnClickListener onclicklistener = new android.view.View.OnClickListener() {
@@ -1387,10 +1389,10 @@ public class Scores extends Activity{
         player_two = intent.getStringExtra("com.examples.PocketCaddies.Player2");
         player_three = intent.getStringExtra("com.examples.PocketCaddies.Player3");
         player_four = intent.getStringExtra("com.examples.PocketCaddies.Player4");
-        Player player = Memory.findPlayer(player_one);
-        Player player1 = Memory.findPlayer(player_two);
-        Player player2 = Memory.findPlayer(player_three);
-        Player player3 = Memory.findPlayer(player_four);
+        Player player = memory.findPlayer(player_one);
+        Player player1 = memory.findPlayer(player_two);
+        Player player2 = memory.findPlayer(player_three);
+        Player player3 = memory.findPlayer(player_four);
         player1_previousaverage = (TextView)findViewById(R.id.Score_Player1_difference);
         player2_previousaverage = (TextView)findViewById(R.id.Score_Player2_difference);
         player3_previousaverage = (TextView)findViewById(R.id.Score_Player3_difference);
@@ -1563,7 +1565,7 @@ public class Scores extends Activity{
         course_name_view.setText(course_name);
         TextView textview4;
         CharSequence charsequence;
-        if (Memory.findPlayer(player_one) != null)
+        if (memory.findPlayer(player_one) != null)
         {
             if (player.getTimesPlayed() == 0)
             {
@@ -1592,7 +1594,7 @@ public class Scores extends Activity{
             textview1.setText((new StringBuilder(String.valueOf(player_two))).append("'s Stats").toString());
             number_players = 2;
 
-            if (Memory.findPlayer(player_two) != null)
+            if (memory.findPlayer(player_two) != null)
             {
                 if (player1.getTimesPlayed() == 0)
                 {
@@ -1620,7 +1622,7 @@ public class Scores extends Activity{
             button2.setText((new StringBuilder(String.valueOf(player_three))).append("'s stats").toString());
             number_players = 3;
             textview2.setText((new StringBuilder(String.valueOf(player_three))).append("'s Stats").toString());
-            if (Memory.findPlayer(player_two) != null)
+            if (memory.findPlayer(player_two) != null)
             {
                 if (player2.getTimesPlayed() == 0)
                 {
@@ -1647,7 +1649,7 @@ public class Scores extends Activity{
             button3.setText((new StringBuilder(String.valueOf(player_four))).append("'s stats").toString());
             number_players = 4;
             textview3.setText((new StringBuilder(String.valueOf(player_four))).append("'s Stats").toString());
-            if (Memory.findPlayer(player_three) != null)
+            if (memory.findPlayer(player_three) != null)
             {
                 if (player3.getTimesPlayed() == 0)
                 {

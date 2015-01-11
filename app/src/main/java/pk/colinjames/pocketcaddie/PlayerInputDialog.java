@@ -38,6 +38,7 @@ public class PlayerInputDialog extends DialogFragment
     private String text;
     private View view1;
     private View view2;
+    Memory memory;
 
     public PlayerInputDialog()
     {
@@ -118,7 +119,7 @@ public class PlayerInputDialog extends DialogFragment
 
     private boolean checkDuplicates(String s)
     {
-        ArrayList arraylist = Memory.createPlayerNames();
+        ArrayList arraylist = memory.createPlayerNames();
         boolean flag = true;
         Iterator iterator = arraylist.iterator();
         do
@@ -169,6 +170,7 @@ public class PlayerInputDialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        memory = Memory.loadData();
         setCancelable(false);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         inflator = getActivity().getLayoutInflater();
@@ -230,8 +232,8 @@ public class PlayerInputDialog extends DialogFragment
                     {
                         Player player = new Player(new ArrayList(), s);
                         Memory.loadData();
-                        Memory.players.add(player);
-                        Memory.saveData(Memory.getInstance());
+                        memory.players.add(player);
+                        Memory.saveData(memory);
                         dismiss();
                         PlayerSelectDialog.counter = 1 + PlayerSelectDialog.counter;
                         if (PlayerSelectDialog.counter == 1)

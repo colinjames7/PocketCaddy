@@ -32,7 +32,7 @@ public class ChoosePlayerStatActivity extends Activity
     String clicked;
     public ArrayList player_names;
     public ArrayAdapter playeradapter;
-
+    Memory memory;
     public ChoosePlayerStatActivity()
     {
     }
@@ -40,12 +40,13 @@ public class ChoosePlayerStatActivity extends Activity
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
+        memory = Memory.loadData();
         Button _tmp = (Button)findViewById(R.id.button1);
         Button _tmp1 = (Button)findViewById(R.id.button2);
         getActionBar().setDisplayShowTitleEnabled(false);
         getActionBar().setBackgroundDrawable(null);
         setContentView(R.layout.activity_choose_player_stat);
-        player_names = Memory.createPlayerNames();
+        player_names = memory.createPlayerNames();
         playeradapter = new ArrayAdapter(this, R.layout.list_custom, player_names);
         TextView textview = (TextView)findViewById(R.id.player_empty_message);
         textview.setVisibility(View.GONE);

@@ -8,7 +8,9 @@ package pk.colinjames.pocketcaddie;
 // Referenced classes of package com.example.pocketcaddies:
 //            Round
 
-public class Course
+import java.io.Serializable;
+
+public class Course implements Serializable
 {
 
     private float average_per_hole;

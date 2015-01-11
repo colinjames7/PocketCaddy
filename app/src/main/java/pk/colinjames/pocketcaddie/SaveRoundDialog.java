@@ -37,6 +37,7 @@ public class SaveRoundDialog extends DialogFragment
     private LayoutInflater inflator;
     private ArrayList player_names;
     private View view1;
+    Memory memory;
 
     public SaveRoundDialog()
     {
@@ -50,7 +51,7 @@ public class SaveRoundDialog extends DialogFragment
             flag = false;
         } else
         {
-            ArrayList arraylist = Memory.createPlayerNames();
+            ArrayList arraylist = memory.createPlayerNames();
             flag = false;
             Iterator iterator = arraylist.iterator();
             while (iterator.hasNext()) 
@@ -169,6 +170,7 @@ public class SaveRoundDialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
+        memory = Memory.loadData();
         setCancelable(false);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         inflator = getActivity().getLayoutInflater();
@@ -220,40 +222,40 @@ public class SaveRoundDialog extends DialogFragment
 
             public void onClick(DialogInterface dialoginterface, int i)
             {
-                player_names = Memory.createPlayerNames();
+                player_names = memory.createPlayerNames();
                 Log.d("what", "working");
-                Player player = Memory.findPlayer(Scores.player_one);
-                Player player1 = Memory.findPlayer(Scores.player_two);
-                Player player2 = Memory.findPlayer(Scores.player_three);
-                Player player3 = Memory.findPlayer(Scores.player_four);
+                Player player = memory.findPlayer(Scores.player_one);
+                Player player1 = memory.findPlayer(Scores.player_two);
+                Player player2 = memory.findPlayer(Scores.player_three);
+                Player player3 = memory.findPlayer(Scores.player_four);
                 Course course = Scores.course;
                 if (check1.isChecked())
                 {
                     Round round = new Round(course, Scores.player1_scores, player, SaveRoundDialog.getOpponents(1), Scores.date_played, Scores.type_play, Scores.playerone_difference);
                     player.addRound(round);
                     course.addRound(round);
-                    Memory.saveData(Memory.getInstance());
+                    Memory.saveData(memory);
                 }
                 if (check2.isChecked())
                 {
                     Round round1 = new Round(course, Scores.player2_scores, player1, SaveRoundDialog.getOpponents(2), Scores.date_played, Scores.type_play, Scores.playertwo_difference);
                     player1.addRound(round1);
                     course.addRound(round1);
-                    Memory.saveData(Memory.getInstance());
+                    Memory.saveData(memory);
                 }
                 if (check3.isChecked())
                 {
                     Round round2 = new Round(course, Scores.player3_scores, player2, SaveRoundDialog.getOpponents(3), Scores.date_played, Scores.type_play, Scores.playerthree_difference);
                     player2.addRound(round2);
                     course.addRound(round2);
-                    Memory.saveData(Memory.getInstance());
+                    Memory.saveData(memory);
                 }
                 if (check4.isChecked())
                 {
                     Round round3 = new Round(course, Scores.player4_scores, player3, SaveRoundDialog.getOpponents(4), Scores.date_played, Scores.type_play, Scores.playerfour_difference);
                     player3.addRound(round3);
                     course.addRound(round3);
-                    Memory.saveData(Memory.getInstance());
+                    Memory.saveData(memory);
                 }
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
@@ -292,41 +294,48 @@ public class SaveRoundDialog extends DialogFragment
 
                 public void onClick(View view)
                 {
-                    player_names = Memory.createPlayerNames();
+                    player_names = memory.createPlayerNames();
                     Log.d("what", "confused");
-                    Player player = Memory.findPlayer(Scores.player_one);
-                    Player player1 = Memory.findPlayer(Scores.player_two);
-                    Player player2 = Memory.findPlayer(Scores.player_three);
-                    Player player3 = Memory.findPlayer(Scores.player_four);
+                    Player player = memory.findPlayer(Scores.player_one);
+                    Player player1 = memory.findPlayer(Scores.player_two);
+                    Player player2 = memory.findPlayer(Scores.player_three);
+                    Player player3 = memory.findPlayer(Scores.player_four);
                     Course course = Scores.course;
                     if (check1.isChecked())
                     {
                         Round round = new Round(course, Scores.player1_scores, player, SaveRoundDialog.getOpponents(1), Scores.date_played, Scores.type_play, Scores.playerone_difference);
                         System.out.println(Scores.type_play);
                         player.addRound(round);
+                        //Log.d("please", Integer.toString(course.getTimesPlayed()));
                         course.addRound(round);
-                        Memory.saveData(Memory.getInstance());
+                       // Log.d("please", Integer.toString(course.getTimesPlayed()));
+                        memory.updateCourse(course);
+                      //  Log.d("please", Integer.toString(memory.courses.get(0).getTimesPlayed()));
+                        Memory.saveData(memory);
                     }
                     if (check2.isChecked())
                     {
                         Round round1 = new Round(course, Scores.player2_scores, player1, SaveRoundDialog.getOpponents(2), Scores.date_played, Scores.type_play, Scores.playertwo_difference);
                         player1.addRound(round1);
                         course.addRound(round1);
-                        Memory.saveData(Memory.getInstance());
+                        memory.updateCourse(course);
+
+                        Memory.saveData(memory);
                     }
                     if (check3.isChecked())
                     {
                         Round round2 = new Round(course, Scores.player3_scores, player2, SaveRoundDialog.getOpponents(3), Scores.date_played, Scores.type_play, Scores.playerthree_difference);
                         player2.addRound(round2);
                         course.addRound(round2);
-                        Memory.saveData(Memory.getInstance());
+                        memory.updateCourse(course);
+                        Memory.saveData(memory);
                     }
                     if (check4.isChecked())
                     {
                         Round round3 = new Round(course, Scores.player4_scores, player3, SaveRoundDialog.getOpponents(4), Scores.date_played, Scores.type_play, Scores.playerfour_difference);
                         player3.addRound(round3);
                         course.addRound(round3);
-                        Memory.saveData(Memory.getInstance());
+                        Memory.saveData(memory);
                     }
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);

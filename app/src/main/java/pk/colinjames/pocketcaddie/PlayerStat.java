@@ -36,6 +36,7 @@ public class PlayerStat extends Activity{
     Player player;
     String player_name;
     LinearLayout view;
+    Memory memory;
 
     public PlayerStat()
     {
@@ -245,8 +246,8 @@ public class PlayerStat extends Activity{
 
             public void onClick(DialogInterface dialoginterface, int i)
             {
-                Memory.players.remove(player);
-                Memory.saveData(Memory.getInstance());
+                memory.players.remove(player);
+                memory.saveData(memory);
                 Intent intent = new Intent(PlayerStat.this, ChooseStatsActivity.class);
                 startActivity(intent);
             }
@@ -280,12 +281,13 @@ public class PlayerStat extends Activity{
     protected void onCreate(Bundle bundle)
     {
         super.onCreate(bundle);
+        memory = Memory.loadData();
         getActionBar().setBackgroundDrawable(null);
         getActionBar().setDisplayShowTitleEnabled(false);
         player_name = getIntent().getStringExtra("com.example.pocketcaddies.player_stat_name");
         setContentView(R.layout.activity_player_stat);
         ((TextView)findViewById(R.id.player_stat_name)).setText(player_name);
-        player = Memory.findPlayer(player_name);
+        player = memory.findPlayer(player_name);
         View view1 = findViewById(R.id.rounds_text);
         TextView textview = (TextView)findViewById(R.id.player_stat_average);
         TextView textview1 = (TextView)findViewById(R.id.player_stat_times);

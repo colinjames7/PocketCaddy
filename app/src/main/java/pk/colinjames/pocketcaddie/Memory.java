@@ -24,15 +24,27 @@ public class Memory
     implements Serializable
 {
 
-    public static ArrayList courses = new ArrayList();
-    static Memory instance = null;
-    public static ArrayList players = new ArrayList();
+    public  ArrayList<Course> courses = new ArrayList();
+    public   ArrayList players = new ArrayList();
 
     public Memory()
     {
+        //courses = new ArrayList();
+        players = new ArrayList();
+
     }
 
-    public static ArrayList createCourseNames()
+    public  void updateCourse(Course c){
+        for(Course f: courses){
+            if (f.getName().equals(c.getName())){
+                courses.remove(f);
+                courses.add(c);
+        }
+
+
+    } }
+
+    public  ArrayList createCourseNames()
     {
         ArrayList arraylist = courses;
         ArrayList arraylist1 = new ArrayList();
@@ -47,7 +59,7 @@ public class Memory
         } while (true);
     }
 
-    public static ArrayList createPlayerNames()
+    public  ArrayList createPlayerNames()
     {
         ArrayList arraylist = players;
         ArrayList arraylist1 = new ArrayList();
@@ -62,7 +74,7 @@ public class Memory
         } while (true);
     }
 
-    public static Course findCourse(String s)
+    public  Course findCourse(String s)
     {
         Iterator iterator = courses.iterator();
         Course course;
@@ -77,7 +89,7 @@ public class Memory
         return course;
     }
 
-    public static Player findPlayer(String s)
+    public  Player findPlayer(String s)
     {
         Iterator iterator = players.iterator();
         Player player;
@@ -92,30 +104,23 @@ public class Memory
         return player;
     }
 
-    public static Memory getInstance()
-    {
-        if (instance == null)
-        {
-            instance = new Memory();
-        }
-        return instance;
-    }
 
     public static Memory loadData()
     {
         Memory memory = null;
         try
         {
-            ObjectInputStream objectinputstream = new ObjectInputStream(new FileInputStream((new StringBuilder()).append(Environment.getExternalStorageDirectory()).append("/pocketCaddies.data").toString()));
+            ObjectInputStream objectinputstream = new ObjectInputStream(new FileInputStream((new File(Environment.getExternalStorageDirectory(), "memory.data"))));
             memory = (Memory)objectinputstream.readObject();
             objectinputstream.close();
-            instance = memory;
-            Log.d("succs2", "SUCCESS2");
+
+            //Log.d("succs2", "SUCCESS2");
         }
         catch (Exception exception)
         {
             Log.d("fiald2", "FAIL2");
-            return memory;
+            memory = null;
+            //return memory;
         }
         return memory;
     }
@@ -124,14 +129,16 @@ public class Memory
     {
         try
         {
-            ObjectOutputStream objectoutputstream = new ObjectOutputStream(new FileOutputStream(new File((new StringBuilder()).append(Environment.getExternalStorageDirectory()).append("/pocketCaddies.data").toString())));
+            ObjectOutputStream objectoutputstream = new ObjectOutputStream(new FileOutputStream((new File(Environment.getExternalStorageDirectory(), "memory.data"))));
             objectoutputstream.writeObject(memory);
+           // objectoutputstream.flush();
             objectoutputstream.close();
             Log.d("succs", "SUCCESS");
             return;
         }
         catch (Exception exception)
         {
+            exception.printStackTrace();
             Log.d("fiald", "FAIL");
         }
     }

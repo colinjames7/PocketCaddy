@@ -38,6 +38,7 @@ public class PlayerSelectDialog extends DialogFragment
     private String text;
     private View view1;
     private View view2;
+    Memory memory;
 
     public PlayerSelectDialog()
     {
@@ -169,7 +170,8 @@ public class PlayerSelectDialog extends DialogFragment
 
     public Dialog onCreateDialog(Bundle bundle)
     {
-        player_names = Memory.createPlayerNames();
+        memory = Memory.loadData();
+        player_names = memory.createPlayerNames();
         player_names.add("New Player");
         player_names.add("Guest Player");
         builder = new android.app.AlertDialog.Builder(getActivity());
