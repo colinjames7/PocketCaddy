@@ -35,14 +35,20 @@ public class Memory
     }
 
     public  void updateCourse(Course c){
-        for(Course f: courses){
-            if (f.getName().equals(c.getName())){
-                courses.remove(f);
-                courses.add(c);
+        int counter = 0;
+        Boolean found = false;
+        for(Course a: courses){
+            if(a.getName().equals(c.getName())){
+                found = true;
+                break;
+            }
+            else{counter ++;}
+
+            if(found) courses.set(counter, c);
+
         }
 
-
-    } }
+         }
 
     public  ArrayList createCourseNames()
     {

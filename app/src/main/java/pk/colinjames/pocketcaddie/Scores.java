@@ -293,76 +293,83 @@ public class Scores extends Activity{
 
 
         switch(i){
-            case(0):{
+            case(1):{
                 int j2 = 0;
                 int k2;
                 while (j2 < 9) {
                     j = (int)((float)j + player1_scores[j2]);
                     j2++; }
+                player1_fronttotal.setText(Integer.toString(Math.round(j)));
+
                 k2 = 9;
 
                 while (k2 < 18)
                 {
-                    player1_fronttotal.setText(Integer.toString(Math.round(j)));
-                    player1_backtotal.setText(Integer.toString(Math.round(k)));
-                    return;
+                    k = (int)((float)k + player1_scores[k2]);
+                    k2++;
                 }
-                k = (int)((float)k + player1_scores[k2]);
-                k2++;
+                player1_backtotal.setText(Integer.toString(Math.round(k)));
+
             }
 
             break;
-            case(1):{
-                int l1 = 0;
-                int i2;
-                while (l1 < 9) {
-                    j = (int)((float)j + player2_scores[l1]);
-                    l1++; }
-                i2 = 9;
-                while (i2 < 18)
-                {
-                    player2_fronttotal.setText(Integer.toString(Math.round(j)));
-                    player2_backtotal.setText(Integer.toString(Math.round(k)));
-                    return;
+            case(2): {
+                int j2 = 0;
+                int k2;
+                while (j2 < 9) {
+                    j = (int) ((float) j + player2_scores[j2]);
+                    j2++;
                 }
-                k = (int)((float)k + player2_scores[i2]);
-                i2++;}
-            break;
-            case(2):{
-                int j1 = 0;
-                int k1;
-                while (j1 < 9) {
-                    j = (int)((float)j + player3_scores[j1]);
-                    j1++;}
-                k1 = 9;
+                player2_fronttotal.setText(Integer.toString(Math.round(j)));
 
-                while (k1 < 18)
-                {
-                    player3_fronttotal.setText(Integer.toString(Math.round(j)));
-                    player3_backtotal.setText(Integer.toString(Math.round(k)));
-                    return;
+                k2 = 9;
+
+                while (k2 < 18) {
+                    k = (int) ((float) k + player2_scores[k2]);
+                    k2++;
                 }
-                k = (int)((float)k + player3_scores[k1]);
-                k1++;
+                player2_backtotal.setText(Integer.toString(Math.round(k)));
+
             }
-            break;
+                break;
+
+
             case(3):{
-                int i1;
-                while (l < 9)
-                {
-                    j = (int)((float)j + player3_scores[l]);
-                    l++;
-                }
-                i1 = 9;
+                int j2 = 0;
+                int k2;
+                while (j2 < 9) {
+                    j = (int)((float)j + player3_scores[j2]);
+                    j2++; }
+                player3_fronttotal.setText(Integer.toString(Math.round(j)));
 
-                while (i1 < 18)
+                k2 = 9;
+
+                while (k2 < 18)
                 {
-                    player4_fronttotal.setText(Integer.toString(Math.round(j)));
-                    player4_backtotal.setText(Integer.toString(Math.round(k)));
-                    return;
+                    k = (int)((float)k + player3_scores[k2]);
+                    k2++;
                 }
-                k = (int)((float)k + player3_scores[i1]);
-                i1++; }
+                player3_backtotal.setText(Integer.toString(Math.round(k)));
+
+            }
+            break;
+            case(4):{
+                int j2 = 0;
+                int k2;
+                while (j2 < 9) {
+                    j = (int)((float)j + player4_scores[j2]);
+                    j2++; }
+                player4_fronttotal.setText(Integer.toString(Math.round(j)));
+
+                k2 = 9;
+
+                while (k2 < 18)
+                {
+                    k = (int)((float)k + player4_scores[k2]);
+                    k2++;
+                }
+                player4_backtotal.setText(Integer.toString(Math.round(k)));
+            }
             break;}
 
 
@@ -1997,7 +2004,7 @@ public class Scores extends Activity{
                 float af1[] = player3_scores;
                 int j1 = af1.length;
 
-                while (i < j1)
+                while (j < j1)
                 {
 
                 float f3 = af1[j];
@@ -2011,7 +2018,7 @@ public class Scores extends Activity{
                     k++;
                 }
                 j++;}
-        if (f1 != 0.0F){return f / f1;} else return 0;
+        if (f1 != 0.0F){return f / f1;} else return -100f;
 
             case(4):
                 float af[] = player4_scores;
